@@ -1,6 +1,6 @@
-# Getting Started with Create React App
+# 리액트 토이프로젝트
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+망고만 빼고 다 파는 [망고샵](https://mango-shop-client-1.vercel.app/)
 
 ## Available Scripts
 

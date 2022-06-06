@@ -8,7 +8,7 @@ const MainPage = () => {
 	const [products, setProducts] = React.useState([]);
 	React.useEffect(() => {
 		axios
-			.get("https://546c0a94-ea04-42e0-8e83-badb01b043d7.mock.pstmn.io/products")
+			.get(`https://8f66e1ae-84fa-4768-b860-feb59bd95609.mock.pstmn.io/products/`)
 			.then(function (result) {
 				const products = result.data.products;
 				setProducts(products);
@@ -19,11 +19,6 @@ const MainPage = () => {
 	}, []);
 	return (
 		<>
-			<div id="header">
-				<div id="header-area">
-					<img src="images/icons/logo.png" alt="" />
-				</div>
-			</div>
 			<div id="body">
 				<div id="banner">
 					<img src="images/banners/banner1.png" alt="" />
@@ -31,10 +26,9 @@ const MainPage = () => {
 				<h1>Products</h1>
 				<div id="product-list">
 					{products.map((product, idx) => {
-						console.log(product)
 						return (
 							<div className="product-card" key={idx}>
-								<Link className="product-link" to={`/ProductPage/${idx}`}>
+								<Link className="product-link" to={`/ProductPage/${product.id}`}>
 									<div>
 										<img className="product-img" src={product.imageUrl} alt={product.name}/>
 									</div>
@@ -51,12 +45,6 @@ const MainPage = () => {
 						);
 					})}
 				</div>
-			</div>
-			<div id="footer">
-				<a href="">회사소개</a>
-				<a href="">이용약관</a>
-				<a href="">통신판매업:123-1234</a>
-				<a href="">사업자등록번호:456-56-78951</a>
 			</div>
 		</>
 	);
