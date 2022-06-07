@@ -1,4 +1,5 @@
-*{margin:0; padding:0;}
+*{margin:0; padding:0;line-height: 1;}
+html{overflow-x: hidden;}
 
 
 
@@ -15,13 +16,14 @@
     border-bottom:1px solid gray;
 }
 #footer{
+    margin-top:100px;
     height:200px;
     background:#e4e4e4;
     display:flex;
     justify-content: center;
     align-items: center;
-    position: fixed;
-    bottom:0;
+    /* position: fixed; */
+
     left:0%;
     right:0%
 }
@@ -37,10 +39,11 @@
     width:100%;
 }
 #header-area{
-    width:1024px;
-    height:100%;
-    display:flex;
-    align-items:center
+width: 1024px;
+height: 100%;
+display: flex;
+align-items: center;
+justify-content: space-between;
 }
 #header-area img{
     width:128px;
