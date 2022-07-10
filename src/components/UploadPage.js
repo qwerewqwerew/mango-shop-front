@@ -1,4 +1,4 @@
-import { Form, Divider, Input, InputNumber, Button, Upload, message } from "antd";
+import { Form, Divider, Input, InputNumber, Button } from "antd";
 import "./UploadPage.css";
 
 function UploadPage() {
@@ -24,7 +24,7 @@ function UploadPage() {
 				</Form.Item>
 				<Divider />
 				<Form.Item name="price" label={<div className="upload-label">판매가</div>} rules={[{ required: true, message: "판매가를 입력해주세요" }]}>
-					<InputNumber className="upload-price" size="large" defaultValue={0} />
+					<InputNumber className="upload-price" size="large" min={0} defaultValue={0} />
 				</Form.Item>
 				<Divider />
 				<Form.Item name="description" label={<div className="upload-label">상품설명</div>} rules={[{ required: true, message: "상품설명을 입력해주세요" }]}>

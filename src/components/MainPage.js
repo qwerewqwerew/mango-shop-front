@@ -2,13 +2,16 @@ import React from "react";
 import { Link } from "react-router-dom";
 import "./MainPage.css";
 import axios from "axios";
+import dayjs from "dayjs";
+import relativeTime from "dayjs/plugin/relativeTime";
 
+dayjs.extend(relativeTime);
 
 const MainPage = () => {
 	const [products, setProducts] = React.useState([]);
 	React.useEffect(() => {
 		axios
-			.get(`https://8f66e1ae-84fa-4768-b860-feb59bd95609.mock.pstmn.io/products/`)
+			.get(`http://localhost:8080/products/`)
 			.then(function (result) {
 				const products = result.data.products;
 				setProducts(products);
@@ -30,14 +33,17 @@ const MainPage = () => {
 							<div className="product-card" key={idx}>
 								<Link className="product-link" to={`/ProductPage/${product.id}`}>
 									<div>
-										<img className="product-img" src={product.imageUrl} alt={product.name}/>
+										<img className="product-img" src={product.imageUrl} alt={product.name} />
 									</div>
 									<div className="product-contents">
 										<span className="product-name">{product.name}</span>
 										<span className="product-price">{product.price}원</span>
-										<div className="product-seller">
-											<img className="product-avatar" src="images/icons/avatar.png"  alt={product.seller} / >
-											<span>밥집</span>
+										<div className="product-footer">
+											<div className="product-seller">
+												<img className="product-avatar" src="images/icons/avatar.png" alt={product.seller} />
+												<span>밥집</span>
+											</div>
+											<span className="product-date">{dayjs(product.createdAt).fromNow()}</span>
 										</div>
 									</div>
 								</Link>
