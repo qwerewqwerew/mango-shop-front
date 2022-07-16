@@ -12,6 +12,7 @@
 .product-img {
 	width: 100%;
 	height: 210px;
+	object-fit: contain;
 }
 .product-contents {
 	display: flex;
@@ -47,4 +48,7 @@
 .product-link {
 	color: #333;
 	text-decoration: none;
+}
+#product-title {
+	margin-top: 16px;
 }
